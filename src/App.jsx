@@ -18,7 +18,7 @@ function App() {
 
   function handleDeleteTodo(index) {
     const newTodoList = todos.filter((todo, todoIndex) => {
-      return todoIndex != index;
+      return todoIndex !== index;
     });
     setTodos(newTodoList);
     persistData(newTodoList);
@@ -29,20 +29,6 @@ function App() {
     setTodoValue(valueToBeEdited);
     handleDeleteTodo(index);
   }
-
-  // useEffect(() => {
-  //   if (!window.localStorage) {
-  //     return;
-  //   }
-
-  //   let localTodos = localStorage.getItem("todos");
-  //   if (!localTodos) {
-  //     return;
-  //   }
-
-  //   localTodos = JSON.parse(localTodos).todos;
-  //   setTodos(localTodos);
-  // }, []);
 
   useEffect(() => {
     const storedTodos = localStorage.getItem("todos");
